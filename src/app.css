@@ -1,0 +1,136 @@
+@font-face {
+    font-family: 'Chatlong';
+    src: url('../public/fonts/Chatlong-zrro3.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(226, 184, 138);
+    font-family: 'Chatlong', sans-serif;
+}
+
+button {
+    font-family: 'Chatlong';
+}
+.sinking {
+    animation: sink .5s ease-in-out;
+}
+
+@keyframes sink {
+    0% {
+        transform: translateY(0) scale(1)
+    }
+    50% {
+        transform: translateY(3px) scale(.95);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+#app {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    height: 100vh;
+    max-width: 800px;
+    margin: auto;
+}
+
+#title {
+    font-size: 48pt;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#timer {
+    grid-row: 2/4;
+    font-size: 62pt;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(1, 1fr);
+    text-align: center;
+    background-image: url('../public/img/articles.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    color: white;
+}
+
+#control {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+#start {
+    background-color: #3B9438;
+}
+
+#pause {
+    background-color: #F2A900;
+}
+
+.time-control {
+    width: 200px;
+    height: 80px;
+    border: none;
+    border-radius: 10px;
+    font-size: 32pt;
+    color: white;
+}
+
+#options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.option {
+    width: 80%;
+    text-align: center;
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 14pt;
+}
+
+#frantic {
+    background-color: #F77967;
+}
+
+#standard {
+    background-color: #74B78B;
+}
+
+#relaxed {
+    background-color: #f0ad57;
+}
