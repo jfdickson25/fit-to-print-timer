@@ -8,13 +8,13 @@
     "theme_color": "rgb(226, 184, 138)",
     "icons": [
         {
-            "src": "/fit-to-print-timer/img/Fit-to-Print-192.png",
+            "src": "/fit-to-print-timer/images/Fit-to-Print-192.png",
             "sizes": "192x192",
             "type": "image/svg+xml",
             "maskable": true
         },
         {
-            "src": "/fit-to-print-timer/img/Fit-to-Print-512.png",
+            "src": "/fit-to-print-timer/images/Fit-to-Print-512.png",
             "sizes": "512x512",
             "type": "image/svg+xml",
             "maskable": true
