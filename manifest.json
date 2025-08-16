@@ -2,31 +2,19 @@
     "name": "Fit to Print Timer",
     "short_name": "Fit to Print Timer",
     "description": "A simple timer application for playing Fit to Print the board game.",
-    "start_url": "./index.html",
+    "start_url": "/fit-to-print-timer",
     "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#000000",
+    "background_color": "rgb(226, 184, 138)",
+    "theme_color": "rgb(226, 184, 138)",
     "icons": [
         {
-            "src": "",
+            "src": "/fit-to-print-timer/Fit-to-Print-192.png",
             "sizes": "192x192",
             "type": "image/svg+xml",
             "maskable": true
         },
         {
-            "src": "",
-            "sizes": "512x512",
-            "type": "image/svg+xml",
-            "maskable": true
-        },
-        {
-            "src": "",
-            "sizes": "192x192",
-            "type": "image/svg+xml",
-            "maskable": true
-        },
-        {
-            "src": "",
+            "src": "/fit-to-print-timer/Fit-to-Print-512.png",
             "sizes": "512x512",
             "type": "image/svg+xml",
             "maskable": true
