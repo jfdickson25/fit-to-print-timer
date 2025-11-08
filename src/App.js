@@ -30,12 +30,12 @@ function App() {
         let audio;
         let timeout;
         if (time === 0) {
-            audio = new Audio(process.env.PUBLIC_URL + '/mp3/ringing_old_phone.mp3');
+            audio = new Audio('../public/mp3/ringing_old_phone.mp3');
             audio.play();
 
             setIsRunning(false);
             if (activeType === 'frantic') {
-                setTime(180); // Reset to 10 seconds for frantic
+                setTime(10); // Reset to 10 seconds for frantic
             } else if (activeType === 'standard') {
                 setTime(240); // Reset to 4 minutes for standard
             } else if (activeType === 'relaxed') {
@@ -94,7 +94,7 @@ function App() {
                         let target = e.currentTarget;
                         target.classList.add('sinking');
                         setTimeout(() => target.classList.remove('sinking'), 1000);
-                        setTime(180);
+                        setTime(10);
                         setActiveType('frantic');
                     }}
                     disabled={isRunning}
