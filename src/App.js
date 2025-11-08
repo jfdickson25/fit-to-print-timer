@@ -30,7 +30,7 @@ function App() {
         let audio;
         let timeout;
         if (time === 0) {
-            audio = new Audio('../public/mp3/ringing_old_phone.mp3');
+            audio = new Audio('/fit-to-print-timer/mp3/ringing_old_phone.mp3');
             audio.play();
 
             setIsRunning(false);
