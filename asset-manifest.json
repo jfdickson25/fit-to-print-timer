@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/fit-to-print-timer/static/css/main.5a0bfc5b.css",
-    "main.js": "/fit-to-print-timer/static/js/main.640a7049.js",
+    "main.js": "/fit-to-print-timer/static/js/main.13a63d18.js",
     "static/media/articles.png": "/fit-to-print-timer/static/media/articles.fe8e653e8e85d3356167.png",
     "static/media/Chatlong-zrro3.ttf": "/fit-to-print-timer/static/media/Chatlong-zrro3.14dbf5a5a6ccca2a611e.ttf",
     "index.html": "/fit-to-print-timer/index.html",
     "main.5a0bfc5b.css.map": "/fit-to-print-timer/static/css/main.5a0bfc5b.css.map",
-    "main.640a7049.js.map": "/fit-to-print-timer/static/js/main.640a7049.js.map"
+    "main.13a63d18.js.map": "/fit-to-print-timer/static/js/main.13a63d18.js.map"
   },
   "entrypoints": [
     "static/css/main.5a0bfc5b.css",
-    "static/js/main.640a7049.js"
+    "static/js/main.13a63d18.js"
   ]
 }
