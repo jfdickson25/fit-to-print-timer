@@ -68,7 +68,7 @@ function App() {
 
         // Reset after zero logic finishes
         if (activeType === 'frantic') {
-            setTime(3);
+            setTime(180);
         } else if (activeType === 'standard') {
             setTime(240);
         } else if (activeType === 'relaxed') {
@@ -124,7 +124,7 @@ function App() {
                         let target = e.currentTarget;
                         target.classList.add('sinking');
                         setTimeout(() => target.classList.remove('sinking'), 1000);
-                        setTime(3);
+                        setTime(180);
                         setActiveType('frantic');
                     }}
                     disabled={isRunning}
