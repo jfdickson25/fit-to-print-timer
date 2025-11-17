@@ -1,11 +1,28 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './app.css';
 
 function App() {
     const [time, setTime] = useState(240); // 5 minutes in seconds
     const [isRunning, setIsRunning] = useState(false);
     const [activeType, setActiveType] = useState('standard');
+    const audioRef = useRef(null);
+
+    useEffect(() => {
+        if (audioRef.current === null) {
+            audioRef.current = new Audio('/fit-to-print-timer/mp3/ringing_old_phone.mp3');
+            audioRef.current.load();
+        }
+    }, []);
+
+    const handleStart = () => {
+        setIsRunning(true);
+        // Optional: unlock audio for iOS Safari
+        audioRef.current.play().then(() => {
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0;
+        }).catch(() => {});
+    };
 
     useEffect(() => {
         let timer;
@@ -25,30 +42,42 @@ function App() {
         return () => clearInterval(timer); // Cleanup on unmount
     }, [isRunning, time]);
 
-    // Audio logic
+    // 🔹 EFFECT 1: Watch for time === 0 → play sound
     useEffect(() => {
-        let audio;
-        let timeout;
-        if (time === 0) {
-            audio = new Audio();
-            audio.src = '/fit-to-print-timer/mp3/ringing_old_phone.mp3';
-            audio.play();
+        if (time !== 0) return;
 
-            setIsRunning(false);
-            if (activeType === 'frantic') {
-                setTime(180); // Reset to 10 seconds for frantic
-            } else if (activeType === 'standard') {
-                setTime(240); // Reset to 4 minutes for standard
-            } else if (activeType === 'relaxed') {
-                setTime(300); // Reset to 5 minutes for relaxed
-            }
+        const audio = audioRef.current;
+        if (audio) {
+            audio.currentTime = 0;
+            audio.play().catch(err => console.log("Audio blocked:", err));
+        }
 
-            timeout = setTimeout(() => {
+        // Stop ringing after 5s
+        setTimeout(() => {
+            if (audio) {
                 audio.pause();
                 audio.currentTime = 0;
-            }, 5000);
-        }
+            }
+        }, 5000);
+
     }, [time]);
+
+    // 🔹 EFFECT 2: Reset timer *after* zero logic fires
+    useEffect(() => {
+        if (time !== 0) return;
+
+        // Reset after zero logic finishes
+        if (activeType === 'frantic') {
+            setTime(3);
+        } else if (activeType === 'standard') {
+            setTime(240);
+        } else if (activeType === 'relaxed') {
+            setTime(300);
+        }
+
+        setIsRunning(false);
+
+    }, [time, activeType]);
 
     return (
         <div id="app">
@@ -81,7 +110,7 @@ function App() {
                                 let target = e.currentTarget;
                                 target.classList.add('sinking');
                                 setTimeout(() => target.classList.remove('sinking'), 1000);
-                                setIsRunning(true);
+                                handleStart();
                             }}
                         >START</button>
                     )
@@ -95,7 +124,7 @@ function App() {
                         let target = e.currentTarget;
                         target.classList.add('sinking');
                         setTimeout(() => target.classList.remove('sinking'), 1000);
-                        setTime(180);
+                        setTime(3);
                         setActiveType('frantic');
                     }}
                     disabled={isRunning}
